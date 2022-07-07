@@ -129,5 +129,5 @@ struct YourApp: App {
 Please pay attention to the following api's ``` setup ``` and ```startSession``` the former *must* be called once per session and will create initial setup for the SDK, the later should be called whenever you have the visitor you would like to assign the analytics/guides to. In case you would like to have an anonymous visitor pass ```nil``` to the ```startSession``` and call it again as soon as you have the visitor. 
 
 ## Limitations 
-* SwiftUI is currently only supported by our [Track-Events solution](https://support.pendo.io/hc/en-us/articles/360061487572-Pendo-for-Mobile-Track-Events-Solution)
+* SwiftUI codeless beta supports page view analytics only
 
