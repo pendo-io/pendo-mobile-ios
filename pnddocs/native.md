@@ -129,5 +129,5 @@ struct YourApp: App {
 Please pay attention to the following api's ``` setup ``` and ```startSession``` the former *must* be called once per session and will create initial setup for the SDK, the later should be called whenever you have the visitor you would like to assign the analytics/guides to. In case you would like to have an anonymous visitor pass ```nil``` to the ```startSession``` and call it again as soon as you have the visitor. 
 
 ## Limitations 
-* SwiftUI codeless beta supports page view analytics only
+* SwiftUI codeless beta supports page view analytics only. To track features / elements, use track events.
 
