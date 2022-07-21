@@ -15,8 +15,8 @@ Add Pendo pod with all rest of the pods:
 In the SPM search for _pendo_ and use `swiftui_beta` branch:<br>
 <img width="700" alt="SPM" src="https://user-images.githubusercontent.com/56674958/180163385-59639b68-df10-4d85-bd72-08dca771bd51.png">
  
-Pure swiftUI apps don't include `AppDelegate` file by default. Please create an `AppDelegate` file and complete the following steps<br> 
 ### Integration
+Pure swiftUI apps don't include `AppDelegate` file by default. Please create an `AppDelegate` file and complete the following steps:<br> 
 In the _AppDelegate_ file <br>
 
 ```swift
@@ -38,10 +38,10 @@ As soon as you have the  user to which you want to relate your guides and analyt
 PendoManager.shared().startSession("visitor1", accountId: "account1", visitorData:[], accountData: [])
 ```
 
-SwiftUI apps **don't respond** to: <br>
+SwiftUI applications **don't respond** to the method <br>
  `application(_ app: UIApplication,open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool` <br>
-  if the app entry point is struct attributed with `@main`.<br>
-In that case please add `.onOpenURL(perform:)` to your main view, for instance:
+  when the app entry point is a struct attributed with `@main`.<br>
+In this case please add `.onOpenURL(perform:)` to your main view, for instance:
 ```swift
 @main
 struct YourApp: App {
