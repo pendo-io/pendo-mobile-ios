@@ -15,7 +15,29 @@ Add Pendo pod with all rest of the pods:
 In the SPM search for _pendo_ and use `swiftui_beta` branch:<br>
 <img width="700" alt="SPM" src="https://user-images.githubusercontent.com/56674958/180163385-59639b68-df10-4d85-bd72-08dca771bd51.png">
  
-Pure swiftUI apps don't include `AppDelegate` file by default. Please create one and follow the instructions in step: **2 Integration**.([Native IOS](pnddocs/native.md)) <br>
+Pure swiftUI apps don't include `AppDelegate` file by default. Please create an `AppDelegate` file and complete the following steps<br> 
+### Integration
+In the _AppDelegate_ file <br>
+
+```swift
+import UIKit
+import Pendo
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let key = "YOUR_KEY"
+        //please note the following API will only setup initial configuration, to start collect analytics use start session
+        PendoManager.shared().setup(key)
+        return true
+    }
+}
+```
+As soon as you have the  user to which you want to relate your guides and analytics please call:
+
+```swift
+PendoManager.shared().startSession("visitor1", accountId: "account1", visitorData:[], accountData: [])
+```
+
 SwiftUI apps **don't respond** to: <br>
  `application(_ app: UIApplication,open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool` <br>
   if the app entry point is struct attributed with `@main`.<br>
@@ -42,3 +64,8 @@ struct YourApp: App {
 
     }
 ``` 
+
+### Project Setup
+To setup the Pendo pairing mode (tagging and test on device) select your project, navigate to the relevant target, select the info tab and create a URL Type using the Pendo url scheme (found in your subscription under the App Details tab)
+
+<img src="https://user-images.githubusercontent.com/56674958/144723345-15c54098-28db-414c-90da-ef4a5256ae6a.png" width="500" height="300">
